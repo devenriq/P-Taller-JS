@@ -1,0 +1,24 @@
+{
+  "name": "14.2taller-js",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000P\u0000-\u0000T\u0000a\u0000l\u0000l\u0000e\u0000r\u0000-\u0000J\u0000S\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tw:build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/octenrique/P-Taller-JS.git"
+  },
+  "keywords": [],
+  "author": "Octavio Palomino <octepc.97@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/octenrique/P-Taller-JS/issues"
+  },
+  "homepage": "https://github.com/octenrique/P-Taller-JS#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
