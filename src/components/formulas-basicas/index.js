@@ -16,11 +16,13 @@ const squareCalculus = () => {
 };
 
 const triangleCalculus = () => {
+  // Getting the inputs
   const side1 = parseFloat(document.querySelector("#triangle-side1").value);
   const side2 = parseFloat(document.querySelector("#triangle-side2").value);
   const height = parseFloat(document.querySelector("#triangle-height").value);
   const base = parseFloat(document.querySelector("#triangle-base").value);
 
+  // Taking the fields where the responses will be show
   const trianglePerimeterResponse = document.querySelector(
     "#triangle-perimeter-response"
   );
@@ -28,10 +30,12 @@ const triangleCalculus = () => {
     "#triangle-area-response"
   );
 
+  // Making the calculus
   const triangleArea = (base * height) / 2;
   const trianglePerimeter = side1 + side2 + base;
   console.log(typeof trianglePerimeter);
 
+  // Showing the results in the DOM
   triangleAreaResponse.innerHTML = triangleArea;
   trianglePerimeterResponse.innerHTML = trianglePerimeter;
 };
