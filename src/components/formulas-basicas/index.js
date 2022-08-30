@@ -1,6 +1,7 @@
 const squareButton = document.querySelector("#square-button");
 const triangleButton = document.querySelector("#triangle-button");
 const circleButton = document.querySelector("#circle-button");
+const triangleHeightButton = document.querySelector("#triangle-i-button");
 
 const squareCalculus = () => {
   const perimeterResponse = document.querySelector(
@@ -59,6 +60,22 @@ const circleCalculus = () => {
   circleAreaResponse.innerHTML = circleArea;
 };
 
+const triangleHeightCalculus = () => {
+  // Getting the inputs
+  const side = parseFloat(document.querySelector("#triangle-i-side").value);
+  const base = parseFloat(document.querySelector("#triangle-i-base").value);
+
+  // Taking the fields where the responses will be show
+  const triangleHeight = document.querySelector("#height-response");
+
+  //Making the calculus
+  const height = Math.sqrt(side ** 2 - base ** 2 / 4).toFixed(2);
+
+  // Showing the results in the DOM
+  triangleHeight.innerHTML = height;
+};
+
 triangleButton.addEventListener("click", triangleCalculus);
 squareButton.addEventListener("click", squareCalculus);
 circleButton.addEventListener("click", circleCalculus);
+triangleHeightButton.addEventListener("click", triangleHeightCalculus);
