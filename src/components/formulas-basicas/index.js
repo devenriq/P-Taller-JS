@@ -1,4 +1,5 @@
 const squareButton = document.querySelector("#square-button");
+const triangleButton = document.querySelector("#triangle-button");
 
 const squareCalculus = () => {
   const perimeterResponse = document.querySelector(
@@ -14,4 +15,21 @@ const squareCalculus = () => {
   areaResponse.innerHTML = squareArea;
 };
 
+const triangleCalculus = () => {
+  const height = document.querySelector("#triangle-height").value;
+  const base = document.querySelector("#triangle-base").value;
+
+  const trianglePerimeterResponse = document.querySelector(
+    "#triangle-perimeter-response"
+  );
+  const triangleAreaResponse = document.querySelector(
+    "#triangle-area-response"
+  );
+
+  const triangleArea = (base * height) / 2;
+
+  triangleAreaResponse.innerHTML = triangleArea;
+};
+
+triangleButton.addEventListener("click", triangleCalculus);
 squareButton.addEventListener("click", squareCalculus);

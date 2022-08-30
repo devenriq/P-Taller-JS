@@ -17,8 +17,11 @@
       </h1>
       <p>The following are the geometric shapes available</p>
 
-      <section class="w-auto h-auto rounded-lg shadow-lg mt-2 mx-2">
-        <div class="w-full flex flex-col justify-center">
+      <section class="w-auto h-auto mt-2 mx-2">
+        <div
+          id="square-container "
+          class="w-full flex flex-col justify-center rounded-lg shadow-lg"
+        >
           <h2 class="text-2xl text-center m-2">Square</h2>
           <img
             src="../../img/undraw_processing_re_tbdu.svg"
@@ -28,7 +31,7 @@
           <div>
             <div class="flex justify-between mx-2">
               <div id="demands">
-                <p>Please, enter a side</p>
+                <p>Side</p>
                 <p>Perimeter</p>
                 <p>Area</p>
               </div>
@@ -48,6 +51,52 @@
             </div>
             <div class="mx-2">
               <button id="square-button" class="w-full py-1">Calculate</button>
+            </div>
+          </div>
+        </div>
+        <div
+          id="triangle-container"
+          class="w-full flex flex-col justify-center rounded-lg shadow-lg mt-4"
+        >
+          <h2 class="text-2xl text-center m-2">Triangle</h2>
+          <img
+            src="../../img/undraw_processing_re_tbdu.svg"
+            alt=""
+            class="w-full h-64"
+          />
+          <div>
+            <div class="flex flex-row justify-between mx-2">
+              <div id="demands">
+                <p>Height</p>
+                <p>Base</p>
+                <p>Perimeter</p>
+                <p>Area</p>
+              </div>
+              <div id="responses" class="flex flex-col">
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="triangle-height"
+                  class="block"
+                />
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="triangle-base"
+                  class="block"
+                />
+                <p id="triangle-perimeter-response" class="text-gray-400">
+                  Perimeter Response
+                </p>
+                <p id="triangle-area-response" class="text-gray-400">
+                  Area Response
+                </p>
+              </div>
+            </div>
+            <div class="mx-2">
+              <button id="triangle-button" class="w-full py-1">
+                Calculate
+              </button>
             </div>
           </div>
         </div>
