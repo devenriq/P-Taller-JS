@@ -67,16 +67,25 @@
           <div>
             <div class="flex flex-row justify-between mx-2">
               <div id="demands">
-                <p>Height</p>
+                <p>Side 1</p>
+                <p>Side 2</p>
                 <p>Base</p>
+                <p>Height</p>
                 <p>Perimeter</p>
                 <p>Area</p>
               </div>
+
               <div id="responses" class="flex flex-col">
                 <input
                   type="number"
                   placeholder="Enter a dimension"
-                  id="triangle-height"
+                  id="triangle-side1"
+                  class="block"
+                />
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="triangle-side2"
                   class="block"
                 />
                 <input
@@ -85,6 +94,13 @@
                   id="triangle-base"
                   class="block"
                 />
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="triangle-height"
+                  class="block"
+                />
+
                 <p id="triangle-perimeter-response" class="text-gray-400">
                   Perimeter Response
                 </p>

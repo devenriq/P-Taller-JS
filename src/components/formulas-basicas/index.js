@@ -16,8 +16,10 @@ const squareCalculus = () => {
 };
 
 const triangleCalculus = () => {
-  const height = document.querySelector("#triangle-height").value;
-  const base = document.querySelector("#triangle-base").value;
+  const side1 = parseFloat(document.querySelector("#triangle-side1").value);
+  const side2 = parseFloat(document.querySelector("#triangle-side2").value);
+  const height = parseFloat(document.querySelector("#triangle-height").value);
+  const base = parseFloat(document.querySelector("#triangle-base").value);
 
   const trianglePerimeterResponse = document.querySelector(
     "#triangle-perimeter-response"
@@ -27,8 +29,11 @@ const triangleCalculus = () => {
   );
 
   const triangleArea = (base * height) / 2;
+  const trianglePerimeter = side1 + side2 + base;
+  console.log(typeof trianglePerimeter);
 
   triangleAreaResponse.innerHTML = triangleArea;
+  trianglePerimeterResponse.innerHTML = trianglePerimeter;
 };
 
 triangleButton.addEventListener("click", triangleCalculus);
