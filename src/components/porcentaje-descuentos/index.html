@@ -41,7 +41,7 @@
                   placeholder="Enter a discount"
                   id="discount-input"
                 />
-                <p id="result" class="text-gray-400">Area Response</p>
+                <p id="discount-result" class="text-gray-400">Area Response</p>
               </div>
             </div>
             <div class="mx-2">
@@ -60,22 +60,24 @@
           <div>
             <div class="flex justify-between mx-2">
               <div id="demands">
+                <p>Price</p>
                 <p>Coupon</p>
                 <p>Discount</p>
                 <p>Result</p>
               </div>
               <div id="responses" class="flex flex-col">
                 <input
-                  type="number"
+                  type="text"
+                  placeholder="Enter a coupon"
+                  id="coupon-price-input"
+                />
+                <input
+                  type="text"
                   placeholder="Enter a coupon"
                   id="coupon-input"
                 />
-                <!-- <input
-                  type="number"
-                  placeholder="Enter a dimension"
-                  id="-input"
-                /> -->
-                <p id="result" class="text-gray-400">Area Response</p>
+                <p id="show-discount" class="text-gray-400">Discount applied</p>
+                <p id="coupon-result" class="text-gray-400">Final price</p>
               </div>
             </div>
             <div class="mx-2">
