@@ -153,7 +153,7 @@
           </div>
         </div>
         <div
-          id="triangle-container"
+          id="triangle-i-container"
           class="w-full flex flex-col justify-center rounded-lg shadow-lg mt-4"
         >
           <h2 class="text-2xl text-center m-2">Triangle Height</h2>
@@ -191,6 +191,56 @@
             </div>
             <div class="mx-2">
               <button id="triangle-i-button" class="w-full py-1">
+                Calculate
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          id="triangle-scalene-container"
+          class="w-full flex flex-col justify-center rounded-lg shadow-lg mt-4"
+        >
+          <h2 class="text-2xl text-center m-2">Triangle Scalene Height</h2>
+          <img
+            src="../../img/undraw_processing_re_tbdu.svg"
+            alt=""
+            class="w-full h-64"
+          />
+          <div>
+            <div class="flex flex-row justify-between mx-2">
+              <div id="demands">
+                <p>Side 1</p>
+                <p>Side 2</p>
+                <p>Base</p>
+                <p>Height</p>
+              </div>
+
+              <div id="responses" class="flex flex-col">
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="triangle-scalene-side1"
+                  class="block"
+                />
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="triangle-scalene-side2"
+                  class="block"
+                />
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="triangle-scalene-base"
+                  class="block"
+                />
+                <p id="triangle-scalene-height" class="text-gray-400">
+                  Height Response
+                </p>
+              </div>
+            </div>
+            <div class="mx-2">
+              <button id="triangle-scalene-button" class="w-full py-1">
                 Calculate
               </button>
             </div>

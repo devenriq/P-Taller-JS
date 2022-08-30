@@ -2,6 +2,9 @@ const squareButton = document.querySelector("#square-button");
 const triangleButton = document.querySelector("#triangle-button");
 const circleButton = document.querySelector("#circle-button");
 const triangleHeightButton = document.querySelector("#triangle-i-button");
+const triangleScaleneButton = document.querySelector(
+  "#triangle-scalene-button"
+);
 
 const squareCalculus = () => {
   const perimeterResponse = document.querySelector(
@@ -75,7 +78,32 @@ const triangleHeightCalculus = () => {
   triangleHeight.innerHTML = height;
 };
 
+const triangleScaleneCalculus = () => {
+  // Getting the inputs
+  const side1 = parseFloat(
+    document.querySelector("#triangle-scalene-side1").value
+  );
+  const side2 = parseFloat(
+    document.querySelector("#triangle-scalene-side2").value
+  );
+  const base = parseFloat(
+    document.querySelector("#triangle-scalene-base").value
+  );
+
+  // Taking the fields where the responses will be show
+  const triangleHeight = document.querySelector("#triangle-scalene-height");
+
+  //Making the calculus
+  const height = Math.sqrt(
+    side1 ** 2 - (side1 ** 2 + base ** 2 - side2 ** 2) / (2 * base) ** 2
+  ).toFixed(2);
+
+  // Showing the results in the DOM
+  triangleHeight.innerHTML = height;
+};
+
 triangleButton.addEventListener("click", triangleCalculus);
 squareButton.addEventListener("click", squareCalculus);
 circleButton.addEventListener("click", circleCalculus);
 triangleHeightButton.addEventListener("click", triangleHeightCalculus);
+triangleScaleneButton.addEventListener("click", triangleScaleneCalculus);
