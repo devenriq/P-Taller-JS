@@ -1,5 +1,6 @@
 const squareButton = document.querySelector("#square-button");
 const triangleButton = document.querySelector("#triangle-button");
+const circleButton = document.querySelector("#circle-button");
 
 const squareCalculus = () => {
   const perimeterResponse = document.querySelector(
@@ -31,14 +32,33 @@ const triangleCalculus = () => {
   );
 
   // Making the calculus
-  const triangleArea = (base * height) / 2;
   const trianglePerimeter = side1 + side2 + base;
-  console.log(typeof trianglePerimeter);
+  const triangleArea = (base * height) / 2;
 
   // Showing the results in the DOM
   triangleAreaResponse.innerHTML = triangleArea;
   trianglePerimeterResponse.innerHTML = trianglePerimeter;
 };
 
+const circleCalculus = () => {
+  // Getting the inputs
+  const diameter = parseFloat(document.querySelector("#circle-diameter").value);
+
+  // Taking the fields where the responses will be show
+  const circlePerimeterResponse = document.querySelector(
+    "#circle-perimeter-response"
+  );
+  const circleAreaResponse = document.querySelector("#circle-area-response");
+
+  // Making the calculus
+  const circlePerimeter = Math.round(Math.PI * diameter);
+  const circleArea = Math.round((Math.PI * diameter ** 2) / 4);
+
+  // Showing the results in the DOM
+  circlePerimeterResponse.innerHTML = circlePerimeter;
+  circleAreaResponse.innerHTML = circleArea;
+};
+
 triangleButton.addEventListener("click", triangleCalculus);
 squareButton.addEventListener("click", squareCalculus);
+circleButton.addEventListener("click", circleCalculus);
