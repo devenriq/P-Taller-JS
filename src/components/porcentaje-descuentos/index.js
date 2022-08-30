@@ -1,3 +1,5 @@
+import { discounts } from "./discounts.js";
+
 const discountButton = document.querySelector("#discount-button");
 const couponButton = document.querySelector("#coupon-button");
 
@@ -29,34 +31,18 @@ const couponDiscountCalculus = () => {
   const showDiscount = document.querySelector("#show-discount");
   const result = document.querySelector("#coupon-result");
 
-  let discount = 0;
-
-  switch (coupon) {
-    case "enrique":
-      discount = 50;
-      break;
-    case "Diana":
-      discount = 100;
-      break;
-    default:
-      discount = 0;
-      break;
-  }
-
-  const resultCalculus = (price - (price * discount) / 100).toFixed(2);
-
-  if (!price || !discount) {
-    result.innerHTML = "Please, fill the form";
+  if (!price || !coupon) {
+    result.innerHTML = "Please, fill all the fields";
     return;
-  }
+  } else if (Object.keys(discounts).includes(coupon)) {
+    const discount = discounts[coupon];
+    const resultCalculus = (price - (price * discounts[coupon]) / 100).toFixed(
+      2
+    );
 
-  if (discount > 100) {
-    result.innerHTML = "The discount cannot be more than 100%";
-    return;
+    showDiscount.innerHTML = discount;
+    result.innerHTML = resultCalculus;
   }
-
-  showDiscount.innerHTML = discount;
-  result.innerHTML = resultCalculus;
 };
 
 discountButton.addEventListener("click", simpleDiscountCalculus);
