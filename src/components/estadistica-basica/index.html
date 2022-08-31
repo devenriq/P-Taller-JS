@@ -5,9 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../../dist/output.css" />
+    <script defer src="./index.js"></script>
     <title>Estadística Básica</title>
   </head>
   <body>
     <h1 class="bg-red-500">I'm a test</h1>
+
+    <main>
+      <section class="w-auto h-auto mt-2 mx-2">
+        <div
+          id="square-container "
+          class="w-full flex flex-col justify-center rounded-lg shadow-lg"
+        >
+          <h2 class="text-2xl text-center m-2">Average</h2>
+          <img src="../../img/statistics.svg" alt="" class="w-full h-64" />
+          <div>
+            <div class="flex justify-between mx-2">
+              <div id="demands">
+                <p>List of Numbers</p>
+                <!-- <p>Second parameter</p>
+                <p>Third parameter</p> -->
+                <p>Result</p>
+              </div>
+              <div id="responses" class="flex flex-col">
+                <input
+                  type="number"
+                  placeholder="Enter all the numbers"
+                  id="average-first-parameter"
+                />
+                <!-- <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="average-second-parameter"
+                />
+                <input
+                  type="number"
+                  placeholder="Enter a dimension"
+                  id="average-third-parameter"
+                /> -->
+                <p id="average-response" class="text-gray-400">Average</p>
+              </div>
+            </div>
+            <div class="mx-2">
+              <button id="average-button" class="w-full py-1">Calculate</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
