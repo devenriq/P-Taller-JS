@@ -3,9 +3,12 @@ const averageInput = document.querySelector("#average-first-parameter");
 const medianResultButton = document.querySelector("#median-result-button");
 const medianEraseButton = document.querySelector("#median-erase-button");
 const medianInput = document.querySelector("#median-first-parameter");
+const modeButton = document.querySelector("#mode-result-button");
+const modeInput = document.querySelector("#mode-first-parameter");
 
 const averageListOfNumbers = [];
 const medianListOfNumbers = [];
+const modeListOfNumbers = [];
 
 const arrayOfNumber = (array) => (e) => {
   //The following is made to capture the enter event in the keyboard
@@ -21,7 +24,7 @@ const arrayOfNumber = (array) => (e) => {
 };
 
 const deleteArray = (array) => (e) => {
-  while(array)
+  array = [];
 };
 
 const averageCalculus = (array) => (e) => {
@@ -37,6 +40,7 @@ const averageCalculus = (array) => (e) => {
 };
 
 const medianCalculus = (array) => (e) => {
+  array.sort();
   const response = document.querySelector("#median-response");
 
   if (array.length % 2 === 0) {
@@ -53,11 +57,25 @@ const medianCalculus = (array) => (e) => {
   array = [];
 };
 
+// modeListOfNumbers = [1, 23, 4, 3, 2, 3, 23, 2, 4, 3, 42, 3];
+
+const modeCalculus = (list) => (e) => {
+  const listCount = {};
+
+  for (let index = 0; index < list.length; index++) {
+    const element = list[index];
+    listCount[element] ? (listCount[element] += 1) : (listCount[element] = 1);
+  }
+  console.log(listCount);
+};
+
 averageInput.addEventListener("keypress", arrayOfNumber(averageListOfNumbers));
 medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
+modeInput.addEventListener("keypress", arrayOfNumber(modeListOfNumbers));
 averageButton.addEventListener("click", averageCalculus(averageListOfNumbers));
 medianResultButton.addEventListener(
   "click",
   medianCalculus(medianListOfNumbers)
 );
 medianEraseButton.addEventListener("click", deleteArray(medianListOfNumbers));
+modeButton.addEventListener("click", modeCalculus(modeListOfNumbers));
