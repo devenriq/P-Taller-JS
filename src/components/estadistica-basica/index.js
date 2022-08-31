@@ -1,6 +1,7 @@
 const averageButton = document.querySelector("#average-button");
 const averageInput = document.querySelector("#average-first-parameter");
-const medianButton = document.querySelector("#median-button");
+const medianResultButton = document.querySelector("#median-result-button");
+const medianEraseButton = document.querySelector("#median-erase-button");
 const medianInput = document.querySelector("#median-first-parameter");
 
 const averageListOfNumbers = [];
@@ -19,15 +20,20 @@ const arrayOfNumber = (array) => (e) => {
   }
 };
 
-const averageCalculus = () => {
+const deleteArray = (array) => (e) => {
+  while(array)
+};
+
+const averageCalculus = (array) => (e) => {
   const response = document.querySelector("#average-response");
-  const result = averageListOfNumbers.reduce((acc, number) => {
+  const result = array.reduce((acc, number) => {
     return acc + number;
   });
 
-  const resultado = result / averageListOfNumbers.length;
+  const resultado = result / array.length;
 
   response.innerHTML = resultado;
+  array = [];
 };
 
 const medianCalculus = (array) => (e) => {
@@ -44,9 +50,14 @@ const medianCalculus = (array) => (e) => {
 
     response.innerHTML = result;
   }
+  array = [];
 };
 
 averageInput.addEventListener("keypress", arrayOfNumber(averageListOfNumbers));
 medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
-averageButton.addEventListener("click", averageCalculus);
-medianButton.addEventListener("click", medianCalculus(medianListOfNumbers));
+averageButton.addEventListener("click", averageCalculus(averageListOfNumbers));
+medianResultButton.addEventListener(
+  "click",
+  medianCalculus(medianListOfNumbers)
+);
+medianEraseButton.addEventListener("click", deleteArray(medianListOfNumbers));
