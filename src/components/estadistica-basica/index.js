@@ -1,30 +1,52 @@
-const average = document.querySelector("#average-button");
-const input = document.querySelector("#average-first-parameter");
+const averageButton = document.querySelector("#average-button");
+const averageInput = document.querySelector("#average-first-parameter");
+const medianButton = document.querySelector("#median-button");
+const medianInput = document.querySelector("#median-first-parameter");
 
-const listOfNumbers = [];
+const averageListOfNumbers = [];
+const medianListOfNumbers = [];
 
-const averageCalculus = () => {
-  const response = document.querySelector("#average-response");
-  const result = listOfNumbers.reduce((acc, number) => {
-    return acc + number;
-  });
-
-  const resultado = result / listOfNumbers.length;
-
-  response.innerHTML = resultado;
-};
-
-const arrayOfNumber = (e) => {
+const arrayOfNumber = (array) => (e) => {
   //The following is made to capture the enter event in the keyboard
   e.which = e.which || e.keyCode;
   if (e.which == 13) {
     //Add the input to the array and make it a number
-    listOfNumbers.push(parseInt(e.srcElement.value));
+    array.push(parseInt(e.srcElement.value));
 
     //Delete the value typed by the user as soon as the enter key is pressed
     e.srcElement.value = "";
+    console.log(array);
   }
 };
 
-input.addEventListener("keypress", arrayOfNumber);
-average.addEventListener("click", averageCalculus);
+const averageCalculus = () => {
+  const response = document.querySelector("#average-response");
+  const result = averageListOfNumbers.reduce((acc, number) => {
+    return acc + number;
+  });
+
+  const resultado = result / averageListOfNumbers.length;
+
+  response.innerHTML = resultado;
+};
+
+const medianCalculus = (array) => (e) => {
+  const response = document.querySelector("#median-response");
+
+  if (array.length % 2 === 0) {
+    console.log("Its even");
+    const result = (array[array.length / 2] + array[array.length / 2 - 1]) / 2;
+
+    response.innerHTML = result;
+  } else {
+    console.log("It isn't even");
+    const result = array[array.length / 2 - 0.5];
+
+    response.innerHTML = result;
+  }
+};
+
+averageInput.addEventListener("keypress", arrayOfNumber(averageListOfNumbers));
+medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
+averageButton.addEventListener("click", averageCalculus);
+medianButton.addEventListener("click", medianCalculus(medianListOfNumbers));
