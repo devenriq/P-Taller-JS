@@ -5,10 +5,15 @@ const medianEraseButton = document.querySelector("#median-erase-button");
 const medianInput = document.querySelector("#median-first-parameter");
 const modeButton = document.querySelector("#mode-result-button");
 const modeInput = document.querySelector("#mode-first-parameter");
+const geometricResultButton = document.querySelector(
+  "#geometric-result-button"
+);
+const geometricInput = document.querySelector("#geometric-first-parameter");
 
 const averageListOfNumbers = [];
 const medianListOfNumbers = [];
 let modeListOfNumbers = [];
+const geometricListOfNumbers = [];
 
 const arrayOfNumber = (array) => (e) => {
   //The following is made to capture the enter event in the keyboard
@@ -57,18 +62,8 @@ const medianCalculus = (array) => (e) => {
   array = [];
 };
 
-modeListOfNumbers = [1, 23, 4, 3, 2, 3, 23, 2, 4, 3, 42, 3];
-modeListOfNumbers = [1, 1, 1, 1, 2, 2, 3, 3, 3];
-
-const orderList = (list) => {
-  function orderListSort(acc, newValue) {
-    return acc[1] - newValue[1];
-  }
-};
-
-console.log(orderList(modeListOfNumbers));
-
 const modeCalculus = (list) => (e) => {
+  const response = document.querySelector("#mode-response");
   const listCount = {};
 
   function sortFunction(acc, newValue) {
@@ -82,14 +77,29 @@ const modeCalculus = (list) => (e) => {
 
   const listArray = Object.entries(listCount);
   const sortList = listArray.sort(sortFunction);
-  console.log(listCount);
-  console.log(listArray);
-  console.log("sortList", sortList);
+  const sortListMax = sortList[listArray.length - 1];
+
+  response.innerHTML = sortListMax[0];
+};
+
+const geometricCalculus = (list) => (e) => {
+  const result = document.querySelector("#geometric-response");
+  const multiplied = list.reduce((acc, num) => {
+    return acc * num;
+  });
+
+  const calculus = (multiplied ** (1 / list.length)).toFixed(2);
+
+  result.innerHTML = calculus;
 };
 
 averageInput.addEventListener("keypress", arrayOfNumber(averageListOfNumbers));
 medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
 modeInput.addEventListener("keypress", arrayOfNumber(modeListOfNumbers));
+geometricInput.addEventListener(
+  "keypress",
+  arrayOfNumber(geometricListOfNumbers)
+);
 averageButton.addEventListener("click", averageCalculus(averageListOfNumbers));
 medianResultButton.addEventListener(
   "click",
@@ -97,3 +107,7 @@ medianResultButton.addEventListener(
 );
 medianEraseButton.addEventListener("click", deleteArray(medianListOfNumbers));
 modeButton.addEventListener("click", modeCalculus(modeListOfNumbers));
+geometricResultButton.addEventListener(
+  "click",
+  geometricCalculus(geometricListOfNumbers)
+);
