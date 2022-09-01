@@ -111,3 +111,5 @@ geometricResultButton.addEventListener(
   "click",
   geometricCalculus(geometricListOfNumbers)
 );
+
+// export { geometricCalculus };
