@@ -8,7 +8,7 @@ const modeInput = document.querySelector("#mode-first-parameter");
 
 const averageListOfNumbers = [];
 const medianListOfNumbers = [];
-const modeListOfNumbers = [];
+let modeListOfNumbers = [];
 
 const arrayOfNumber = (array) => (e) => {
   //The following is made to capture the enter event in the keyboard
@@ -57,16 +57,34 @@ const medianCalculus = (array) => (e) => {
   array = [];
 };
 
-// modeListOfNumbers = [1, 23, 4, 3, 2, 3, 23, 2, 4, 3, 42, 3];
+modeListOfNumbers = [1, 23, 4, 3, 2, 3, 23, 2, 4, 3, 42, 3];
+modeListOfNumbers = [1, 1, 1, 1, 2, 2, 3, 3, 3];
+
+const orderList = (list) => {
+  function orderListSort(acc, newValue) {
+    return acc[1] - newValue[1];
+  }
+};
+
+console.log(orderList(modeListOfNumbers));
 
 const modeCalculus = (list) => (e) => {
   const listCount = {};
+
+  function sortFunction(acc, newValue) {
+    return acc[1] - newValue[1];
+  }
 
   for (let index = 0; index < list.length; index++) {
     const element = list[index];
     listCount[element] ? (listCount[element] += 1) : (listCount[element] = 1);
   }
+
+  const listArray = Object.entries(listCount);
+  const sortList = listArray.sort(sortFunction);
   console.log(listCount);
+  console.log(listArray);
+  console.log("sortList", sortList);
 };
 
 averageInput.addEventListener("keypress", arrayOfNumber(averageListOfNumbers));
