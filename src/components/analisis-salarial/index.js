@@ -9,7 +9,7 @@ const arrayOfNumber = (array) => (e) => {
   e.which = e.which || e.keyCode;
   if (e.which == 13) {
     //Add the input to the array and make it a number
-    array.push(parseInt(e.srcElement.value));
+    array.push(e.srcElement.value);
 
     //Delete the value typed by the user as soon as the enter key is pressed
     e.srcElement.value = "";
@@ -21,12 +21,12 @@ const deleteArray = (array) => (e) => {
   array = [];
 };
 
-console.log(salarios);
+// console.log(salarios);
 
 const person = medianInput.value;
 
 const findPerson = (person) => {
-  return (findIt = salarios.find((person) => person.name === "Nath"));
+  return (findIt = salarios.find((person) => person.name === "Juanita"));
 };
 
 const medianPerPerson = (personName) => (e) => {
@@ -41,13 +41,12 @@ const medianPerPerson = (personName) => (e) => {
 };
 
 const medianCalculus = (objectList) => {
-  const response = document.querySelector("#median-response");
+  const response = document.querySelector("#projected-salary");
 
+  const sortList = objectList.sort(sortFunction);
   function sortFunction(acc, newValue) {
     return acc - newValue;
   }
-
-  const sortList = objectList.sort(sortFunction);
 
   if (sortList.length % 2 === 0) {
     const result =
@@ -59,6 +58,24 @@ const medianCalculus = (objectList) => {
 
     response.innerHTML = result;
   }
+};
+
+const projectionPerPerson = (personName) => {
+  const jobs = findPerson(personName).trabajos;
+
+  console.log(jobs);
+  let growthPercentages = [];
+
+  for (let i = 1; i < jobs.length; i++) {
+    const actualSalary = jobs[i].salario;
+    const lastSalary = jobs[i - 1].salario;
+    const growth = actualSalary - lastSalary;
+    const growthPercentage = growth / lastSalary;
+
+    growthPercentages.push(growthPercentage);
+  }
+
+  console.log(growthPercentages);
 };
 
 medianResultButton.addEventListener("click", medianPerPerson(person));
