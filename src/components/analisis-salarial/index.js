@@ -106,3 +106,40 @@ const medianEnterpriseYear = (name, year) => {
     return medianCalculus(enterprises[name][year]);
   }
 };
+
+const projectionPerEnterprise = (name) => {
+  let listMedianYear = [];
+
+  if (!enterprises[name]) {
+    console.warn("The enterprise doesn't exist");
+    return;
+  } else {
+    const enterprisesYear = Object.keys(enterprises[name]);
+    listMedianYear = enterprisesYear.map((year) => {
+      return medianEnterpriseYear(name, year);
+    });
+  }
+
+  let growthPercentages = [];
+
+  for (let i = 1; i < listMedianYear.length; i++) {
+    const actualSalary = listMedianYear[i];
+    const lastSalary = listMedianYear[i - 1];
+    const growth = actualSalary - lastSalary;
+    const growthPercentage = growth / lastSalary;
+
+    growthPercentages.push(growthPercentage);
+  }
+
+  const medianGrowth = (medianCalculus(growthPercentages) * 100).toFixed(2);
+
+  console.log(growthPercentages);
+  console.log(medianGrowth);
+
+  const lastMedian = listMedianYear[listMedianYear.length - 1];
+  const growth = (lastMedian * medianGrowth) / 100 + lastMedian;
+
+  console.log(growth);
+};
+
+projectionPerEnterprise("MarketerosCOL");
