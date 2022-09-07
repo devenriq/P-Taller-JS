@@ -83,6 +83,33 @@ const projectionPerPerson = () => {
   percentageResponse.innerHTML = medianGrowth;
 };
 
-// medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
 medianResultButton.addEventListener("click", medianPerPerson);
 medianResultButton.addEventListener("click", projectionPerPerson);
+
+// Análisis empresarial
+
+const enterprisesWithSalaries = () => {
+  const listCount = {};
+
+  const sortDate = () => {};
+
+  for (let i = 0; i < salarios.length; i++) {
+    const jobs = salarios[i]["trabajos"];
+    for (let j = 0; j < jobs.length; j++) {
+      const enterprises = jobs[j]["empresa"];
+      const salaries = jobs[j]["salario"];
+
+      if (listCount[enterprises]) {
+        listCount[enterprises] = [salaries];
+      } else {
+        listCount[enterprises] = [salaries];
+      }
+
+      // console.log(enterprises);
+      console.log(typeof salaries);
+    }
+  }
+  console.log(listCount);
+};
+
+enterprisesWithSalaries();
