@@ -1,5 +1,5 @@
 const medianResultButton = document.querySelector("#median-result-button");
-const medianEraseButton = document.querySelector("#median-erase-button");
+// const medianEraseButton = document.querySelector("#median-erase-button");
 const medianInput = document.querySelector("#median-first-parameter");
 
 let person = medianInput.value;
@@ -7,9 +7,7 @@ let person = medianInput.value;
 //   console.log(medianInput.value);
 // };
 
-const deleteArray = (array) => (e) => {
-  array = [];
-};
+// const medianListOfNumbers = [];
 
 const findPerson = (person) => {
   return (findIt = salarios.find(
@@ -20,9 +18,10 @@ const findPerson = (person) => {
 const medianPerPerson = (personName) => {
   const jobs = findPerson(personName).trabajos;
 
-  const salarios = jobs.map((element) => {
-    return element.salario;
-  });
+  // const showPersonInput = () => (e) => {
+  //   e.which = e.which || e.keyCode;
+  //   console.log(e.srcElement.value);
+  // };
 
   const sortedSalary = medianCalculus(salarios);
   return sortedSalary;
