@@ -25,6 +25,7 @@ const medianPerPerson = (personName) => {
   });
 
   const sortedSalary = medianCalculus(salarios);
+  return sortedSalary;
 };
 
 const sortList = (array) => {
@@ -51,25 +52,11 @@ const medianCalculus = (objectList) => {
 
     return result;
   }
-  // showMedianCalculus(sortList);
 };
 
-// const showMedianCalculus = (sortList) => {
-
-//   if (sortList.length % 2 === 0) {
-//     const result =
-//       (sortList[sortList.length / 2] + sortList[sortList.length / 2 - 1]) / 2;
-
-//     response.innerHTML = result;
-//   } else {
-//     const result = sortList[sortList.length / 2 - 0.5];
-
-//     response.innerHTML = result;
-//   }
-// };
-
 const projectionPerPerson = () => {
-  const response = document.querySelector("#projected-salary");
+  const salaryResponse = document.querySelector("#projected-salary");
+  const percentageResponse = document.querySelector("#percentage-increment");
 
   console.log(person);
 
@@ -85,16 +72,15 @@ const projectionPerPerson = () => {
     growthPercentages.push(growthPercentage);
   }
 
-  console.log(growthPercentages);
-  console.log(jobs);
+  const medianGrowth = (medianCalculus(growthPercentages) * 100).toFixed(2);
 
-  console.log(medianPerPerson(person));
-  console.log(medianPerPerson(person));
-  // const percentageCalculus =
-  //   medianPerPerson(personName) +
-  //   medianCalculus(growthPercentages) * medianPerPerson(personName);
+  const result = (
+    medianPerPerson(person) +
+    (medianGrowth * medianPerPerson(person)) / 100
+  ).toFixed(2);
 
-  // console.log(percentageCalculus);
+  salaryResponse.innerHTML = result;
+  percentageResponse.innerHTML = medianGrowth;
 };
 
 // medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
