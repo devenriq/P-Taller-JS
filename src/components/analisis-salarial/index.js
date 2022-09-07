@@ -2,34 +2,22 @@ const medianResultButton = document.querySelector("#median-result-button");
 const medianEraseButton = document.querySelector("#median-erase-button");
 const medianInput = document.querySelector("#median-first-parameter");
 
-const medianListOfNumbers = [];
-
-const arrayOfNumber = (array) => (e) => {
-  //The following is made to capture the enter event in the keyboard
-  e.which = e.which || e.keyCode;
-  if (e.which == 13) {
-    //Add the input to the array and make it a number
-    array.push(e.srcElement.value);
-
-    //Delete the value typed by the user as soon as the enter key is pressed
-    e.srcElement.value = "";
-    console.log(array);
-  }
-};
+let person = medianInput.value;
+// let person = () => {
+//   console.log(medianInput.value);
+// };
 
 const deleteArray = (array) => (e) => {
   array = [];
 };
 
-// console.log(salarios);
-
-const person = medianInput.value;
-
 const findPerson = (person) => {
-  return (findIt = salarios.find((person) => person.name === "Juanita"));
+  return (findIt = salarios.find(
+    (person) => person.name === medianInput.value
+  ));
 };
 
-const medianPerPerson = (personName) => (e) => {
+const medianPerPerson = (personName) => {
   const jobs = findPerson(personName).trabajos;
 
   const salarios = jobs.map((element) => {
@@ -37,33 +25,55 @@ const medianPerPerson = (personName) => (e) => {
   });
 
   const sortedSalary = medianCalculus(salarios);
-  console.log(sortedSalary);
 };
 
-const medianCalculus = (objectList) => {
-  const response = document.querySelector("#projected-salary");
-
-  const sortList = objectList.sort(sortFunction);
+const sortList = (array) => {
+  const sortingList = array.sort(sortFunction);
   function sortFunction(acc, newValue) {
     return acc - newValue;
   }
 
-  if (sortList.length % 2 === 0) {
-    const result =
-      (sortList[sortList.length / 2] + sortList[sortList.length / 2 - 1]) / 2;
-
-    response.innerHTML = result;
-  } else {
-    const result = sortList[sortList.length / 2 - 0.5];
-
-    response.innerHTML = result;
-  }
+  return sortingList;
 };
 
-const projectionPerPerson = (personName) => {
-  const jobs = findPerson(personName).trabajos;
+const medianCalculus = (objectList) => {
+  const sortedList = sortList(objectList);
 
-  console.log(jobs);
+  if (sortedList.length % 2 === 0) {
+    const result =
+      (sortedList[sortedList.length / 2] +
+        sortedList[sortedList.length / 2 - 1]) /
+      2;
+
+    return result;
+  } else {
+    const result = sortedList[sortedList.length / 2 - 0.5];
+
+    return result;
+  }
+  // showMedianCalculus(sortList);
+};
+
+// const showMedianCalculus = (sortList) => {
+
+//   if (sortList.length % 2 === 0) {
+//     const result =
+//       (sortList[sortList.length / 2] + sortList[sortList.length / 2 - 1]) / 2;
+
+//     response.innerHTML = result;
+//   } else {
+//     const result = sortList[sortList.length / 2 - 0.5];
+
+//     response.innerHTML = result;
+//   }
+// };
+
+const projectionPerPerson = () => {
+  const response = document.querySelector("#projected-salary");
+
+  console.log(person);
+
+  const jobs = findPerson(person).trabajos;
   let growthPercentages = [];
 
   for (let i = 1; i < jobs.length; i++) {
@@ -76,11 +86,17 @@ const projectionPerPerson = (personName) => {
   }
 
   console.log(growthPercentages);
+  console.log(jobs);
+
+  console.log(medianPerPerson(person));
+  console.log(medianPerPerson(person));
+  // const percentageCalculus =
+  //   medianPerPerson(personName) +
+  //   medianCalculus(growthPercentages) * medianPerPerson(personName);
+
+  // console.log(percentageCalculus);
 };
 
-medianResultButton.addEventListener("click", medianPerPerson(person));
-medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
-// medianResultButton.addEventListener(
-//   "click",
-//   medianCalculus(medianListOfNumbers)
-// );
+// medianInput.addEventListener("keypress", arrayOfNumber(medianListOfNumbers));
+medianResultButton.addEventListener("click", medianPerPerson);
+medianResultButton.addEventListener("click", projectionPerPerson);
