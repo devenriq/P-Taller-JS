@@ -75,28 +75,34 @@ medianResultButton.addEventListener("click", projectionPerPerson);
 
 // Análisis empresarial
 
-const enterprisesWithSalaries = () => {
-  const listCount = {};
+const enterprises = {};
 
-  const sortDate = () => {};
+for (let i = 0; i < salarios.length; i++) {
+  const jobs = salarios[i]["trabajos"];
+  for (let j = 0; j < jobs.length; j++) {
+    const enterprise = jobs[j]["empresa"];
+    const year = jobs[j]["year"];
+    const salaries = jobs[j]["salario"];
 
-  for (let i = 0; i < salarios.length; i++) {
-    const jobs = salarios[i]["trabajos"];
-    for (let j = 0; j < jobs.length; j++) {
-      const enterprises = jobs[j]["empresa"];
-      const salaries = jobs[j]["salario"];
-
-      if (listCount[enterprises]) {
-        listCount[enterprises] = [salaries];
-      } else {
-        listCount[enterprises] = [salaries];
-      }
-
-      // console.log(enterprises);
-      console.log(typeof salaries);
+    if (!enterprises[enterprise]) {
+      enterprises[enterprise] = {};
     }
-  }
-  console.log(listCount);
-};
 
-enterprisesWithSalaries();
+    if (!enterprises[enterprise][year]) {
+      enterprises[enterprise][year] = [];
+    }
+
+    enterprises[enterprise][year].push(salaries);
+  }
+}
+
+const medianEnterpriseYear = (name, year) => {
+  if (!enterprises) {
+    console.warn("The enterprise doesn't exist");
+    return;
+  } else if (!enterprises[name][year]) {
+    console.warn("The enterprise doesn't pay anything that year");
+  } else {
+    return medianCalculus(enterprises[name][year]);
+  }
+};
