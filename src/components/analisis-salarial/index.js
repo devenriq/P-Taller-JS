@@ -11,7 +11,12 @@ const findPerson = (person) => {
 
 const medianPerPerson = (personName) => {
   const jobs = findPerson(personName).trabajos;
-  const sortedSalary = medianCalculus(salarios);
+  const job = [];
+
+  jobs.forEach((year) => {
+    job.push(year.salario);
+  });
+  const sortedSalary = medianCalculus(job);
   return sortedSalary;
 };
 
@@ -45,6 +50,8 @@ const projectionPerPerson = () => {
   const salaryResponse = document.querySelector("#projected-salary");
   const percentageResponse = document.querySelector("#percentage-increment");
 
+  let person = medianInput.value;
+
   console.log(person);
 
   const jobs = findPerson(person).trabajos;
@@ -66,8 +73,10 @@ const projectionPerPerson = () => {
     (medianGrowth * medianPerPerson(person)) / 100
   ).toFixed(2);
 
-  salaryResponse.innerHTML = result;
+  console.log(result);
+
   percentageResponse.innerHTML = medianGrowth;
+  salaryResponse.innerHTML = result;
 };
 
 medianResultButton.addEventListener("click", medianPerPerson);
