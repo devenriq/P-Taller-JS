@@ -12,7 +12,6 @@ const findPerson = (person) => {
 const medianPerPerson = (personName) => {
   const jobs = findPerson(personName).trabajos;
   const job = [];
-
   jobs.forEach((year) => {
     job.push(year.salario);
   });
@@ -51,9 +50,6 @@ const projectionPerPerson = () => {
   const percentageResponse = document.querySelector("#percentage-increment");
 
   let person = medianInput.value;
-
-  console.log(person);
-
   const jobs = findPerson(person).trabajos;
   let growthPercentages = [];
 
@@ -72,8 +68,6 @@ const projectionPerPerson = () => {
     medianPerPerson(person) +
     (medianGrowth * medianPerPerson(person)) / 100
   ).toFixed(2);
-
-  console.log(result);
 
   percentageResponse.innerHTML = medianGrowth;
   salaryResponse.innerHTML = result;
@@ -152,3 +146,14 @@ const projectionPerEnterprise = (name) => {
 };
 
 projectionPerEnterprise("MarketerosCOL");
+
+//analisis general
+const generalMedian = () => {
+  const names = salarios.map((person) => person.name);
+
+  const medianPerName = names.map((name) => {
+    medianPerPerson(name);
+  });
+};
+
+generalMedian();
