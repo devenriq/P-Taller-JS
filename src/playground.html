@@ -12,9 +12,8 @@
     <script src="./PlaygroundApp.js" type="module"></script>
     <title>Playground</title>
   </head>
-  <!-- TODO: arreglar el background color -->
   <body class="bg-[#070a52] style='background-color: #070a52'">
-    <div class="relative h-[500px] p-8 w-full text-white">
+    <div class="relative h-[650px] p-8 w-full text-white">
       <i
         class="absolute right-12 top-96 text-5xl rotate-[5deg] fa-sharp fa-solid fa-plus text-[#F15A59]"
       ></i>
@@ -28,11 +27,11 @@
         class="absolute right-12 top-60 text-5xl rotate-[-7deg] fa-solid fa-coins"
       ></i>
       <i class="fa-solid fa-slash-forward"></i>
-      <h1 class="text-4xl font-bold mt-5">
+      <h1 class="text-4xl font-bold mt-5 md:text-7xl">
         Bienvenido al Playground donde podrás encontrar diferentes aplicaciones
         matemáticas
       </h1>
-      <p class="mt-5 font-light">
+      <p class="mt-5 font-light md:text-2xl md:mt-10">
         Usando tecnologías como JS, Tailwind y HTML se crearon diferentes
         aplicaciones autosuficientes cuyos propósitos son limitados
       </p>
@@ -45,7 +44,7 @@
       </h2>
       <div
         id="card"
-        class="flex justify-center items-center gap-8 flex-col"
+        class="grid-cols-1 md:grid-cols-2 justify-center items-center gap-8 flex-col grid-auto-rows: 1fr"
       ></div>
     </section>
     <footer></footer>
