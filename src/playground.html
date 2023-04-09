@@ -5,26 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/4debfe2c7e.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./PlaygroundApp.js" type="module"></script>
     <title>Playground</title>
   </head>
   <!-- TODO: arreglar el background color -->
   <body class="bg-['#070a52'] style='background-color: #070a52'">
-    <div class="bg-red-300 h-[500px] p-5 w-full">
+    <div class="relative h-[500px] p-8 w-full">
+      <i
+        class="absolute left-5 top-5 text-4xl rotate-[-10deg] fa-sharp fa-solid fa-plus"
+      ></i>
+      <i
+        class="absolute right-12 top-16 text-5xl rotate-[16deg] bg-['#070A52'] fa-solid fa-calculator"
+      ></i>
+      <i class="fa-solid fa-xmark"></i>
+      <i
+        class="absolute right-12 top-60 text-5xl rotate-[-7deg] fa-solid fa-coins"
+      ></i>
+      <i class="fa-solid fa-slash-forward"></i>
       <h1 class="text-4xl font-bold mt-5">
         Bienvenido al Playground donde podrás encontrar diferentes aplicaciones
         matemáticas
       </h1>
-      <p class="mt-3 font-light">
+      <p class="mt-5 font-light">
         Usando tecnologías como JS, Tailwind y HTML se crearon diferentes
         aplicaciones autosuficientes cuyos propósitos son limitados
       </p>
     </div>
     <section
-      class="bg-green-200 h-auto w-full flex justify-center items-center flex-col"
+      class="undraw_success_factors_re_ce93h-auto w-full flex justify-center items-center flex-col"
     >
-      <h2>Las aplicaciones son:</h2>
-      <div id="card"></div>
+      <h2 class="my-5 text-2xl font-medium">Las aplicaciones son:</h2>
+      <div
+        id="card"
+        class="flex justify-center items-center gap-10 flex-col"
+      ></div>
       <!-- <div class="h-[270px] w-11/12 bg-slate-400">
         <h3 class="text-center text-xl">${data.title}</h3>
         <img
@@ -36,5 +54,6 @@
         <a href="${data.source}">Ver</a>
       </div> -->
     </section>
+    <footer></footer>
   </body>
 </html>
