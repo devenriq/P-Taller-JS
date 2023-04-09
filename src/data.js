@@ -1,7 +1,7 @@
 export const data = [
   {
     title: "Análisis Salarial",
-    description: "lorem",
+    description: "Aplicación que ",
     image: "./assets/thumbnails/analisis-salarial.svg",
     source: "./components/analisis-salarial/index.html",
   },
