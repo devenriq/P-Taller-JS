@@ -13,15 +13,17 @@
     <title>Playground</title>
   </head>
   <!-- TODO: arreglar el background color -->
-  <body class="bg-['#070a52'] style='background-color: #070a52'">
-    <div class="relative h-[500px] p-8 w-full">
+  <body class="bg-[#070a52] style='background-color: #070a52'">
+    <div class="relative h-[500px] p-8 w-full text-white">
       <i
-        class="absolute left-5 top-5 text-4xl rotate-[-10deg] fa-sharp fa-solid fa-plus"
+        class="absolute right-12 top-96 text-5xl rotate-[5deg] fa-sharp fa-solid fa-plus text-[#F15A59]"
       ></i>
       <i
-        class="absolute right-12 top-16 text-5xl rotate-[16deg] bg-['#070A52'] fa-solid fa-calculator"
+        class="absolute right-12 top-16 text-5xl rotate-[16deg] text-[#ED2B2A] fa-solid fa-calculator"
       ></i>
-      <i class="fa-solid fa-xmark"></i>
+      <i
+        class="absolute left-5 top-5 text-4xl rotate-[-10deg] fa-solid fa-xmark text-[#F15A59]"
+      ></i>
       <i
         class="absolute right-12 top-60 text-5xl rotate-[-7deg] fa-solid fa-coins"
       ></i>
@@ -38,21 +40,13 @@
     <section
       class="undraw_success_factors_re_ce93h-auto w-full flex justify-center items-center flex-col"
     >
-      <h2 class="my-5 text-2xl font-medium">Las aplicaciones son:</h2>
+      <h2 class="my-5 text-2xl font-medium text-white">
+        Las aplicaciones son:
+      </h2>
       <div
         id="card"
-        class="flex justify-center items-center gap-10 flex-col"
+        class="flex justify-center items-center gap-8 flex-col"
       ></div>
-      <!-- <div class="h-[270px] w-11/12 bg-slate-400">
-        <h3 class="text-center text-xl">${data.title}</h3>
-        <img
-          src="https://picsum.photos/200"
-          alt="${data.title}"
-          class="w-full bg-cover h-[200px]"
-        />
-        <p>${data.description}</p>
-        <a href="${data.source}">Ver</a>
-      </div> -->
     </section>
     <footer></footer>
   </body>

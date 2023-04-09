@@ -7,12 +7,30 @@
     <script defer src="./data.js"></script>
     <script defer src="./index.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/4debfe2c7e.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../../../dist/output.css" />
     <title>Análisis Salarial</title>
   </head>
-  <body>
-    <h1 class="bg-red-500">I'm a test</h1>
-    <main>
+  <body class="h-full w-full relative">
+    <nav
+      class="w-full h-10 bg-[#070A52] flex items-center text-white text-xl p-2"
+    >
+      <li class="list-none hover:text-[#F15A59]">
+        <i class="fa-solid fa-house mr-4"></i
+        ><a href="../../playground.html">Home</a>
+      </li>
+    </nav>
+    <div class="m-5">
+      <h1 class="text-3xl font-medium my-4">Análisis Salarial</h1>
+      <p class="font-light">
+        En esta aplicación se puede obtener la media de un monto proporcionado.
+        Se pide que sea el salario para obtener resultados adecuados.
+      </p>
+    </div>
+    <main class="absolute top-[230px]">
       <section class="w-auto h-auto mt-2 mx-2">
         <div
           id="median-container "
