@@ -5,7 +5,7 @@ const card = document.querySelector("#card");
 const cards = () => {
   const cardInfo = data.map((data) => {
     return `
-      <div class="h-[300px] min-w-[350px] max-w-[360px] w-11/12 bg-slate-200 col-span-1 rounded-lg flex items-center justify-start flex-col relative">
+      <div class="h-[300px] min-w-[350px] max-w-[360px] w-11/12 bg-slate-200 col-span-1 md:col-span-2 rounded-lg flex items-center justify-start flex-col relative">
         <h3 class="text-center text-xl my-2">${data.title}</h3>
         <img
           src="${data.image}"

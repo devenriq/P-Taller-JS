@@ -12,8 +12,10 @@
     <script src="./PlaygroundApp.js" type="module"></script>
     <title>Playground</title>
   </head>
-  <body class="bg-[#070a52] style='background-color: #070a52'">
-    <div class="relative h-[650px] p-8 w-full text-white">
+  <body
+    class="bg-[#070a52] style='background-color: #070a52' grid grid-cols-1 xl:grid-cols-2"
+  >
+    <div class="relative h-[500px] md:h-[650px] p-8 w-full text-white xl:ml-12">
       <i
         class="absolute right-12 top-96 text-5xl rotate-[5deg] fa-sharp fa-solid fa-plus text-[#F15A59]"
       ></i>
@@ -37,14 +39,14 @@
       </p>
     </div>
     <section
-      class="undraw_success_factors_re_ce93h-auto w-full flex justify-center items-center flex-col"
+      class="h-auto w-full flex justify-center items-center flex-col xl:p-12"
     >
-      <h2 class="my-5 text-2xl font-medium text-white">
+      <h2 class="my-5 text-2xl font-medium text-white xl:hidden">
         Las aplicaciones son:
       </h2>
       <div
         id="card"
-        class="grid-cols-1 md:grid-cols-2 justify-center items-center gap-8 flex-col grid-auto-rows: 1fr"
+        class="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-8 xl:gap-4 flex-col grid-auto-rows: 1fr"
       ></div>
     </section>
     <footer></footer>
