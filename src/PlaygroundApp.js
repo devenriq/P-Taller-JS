@@ -14,7 +14,7 @@ const cards = () => {
         />
         <p class="absolute left-2 bottom-2">${data.description}</p>
         <a class="absolute right-4 top-2" href="${data.source}">
-          <i class="fa-regular fa-magnifying-glass "></i>
+          <img class='w-6 h-6 hover:w-8 hover:h-8 transition' src='./assets/images/view.svg' alt='view'/>
         </a>
       </div>`;
   });
